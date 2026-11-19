@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7RAdmin - Assistance Administrative &amp; Numérique | Bassin de Thau</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#062B66',
+                            light: '#0A387D',
+                            dark: '#041E47',
+                            50: '#F0F5FA',
+                            100: '#DCE6F5',
+                        },
+                        cyanbrand: {
+                            DEFAULT: '#00A8A8',
+                            light: '#00B5B5',
+                            dark: '#008787',
+                            50: '#EFFBFB',
+                            100: '#D4F5F5',
+                        },
+                        surface: '#F7FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7FAFC;
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #062B66 0%, #0A387D 45%, #00A8A8 100%);
+        }
+        .brand-text-gradient {
+            background: linear-gradient(135deg, #062B66 0%, #00A8A8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-[#00A8A8] selection:text-white">
+
+    <!-- Modale Mentions Légales -->
+    <div id="legal-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#062B66]/60 backdrop-blur-xs hidden opacity-0 transition-opacity duration-300 p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[88vh] overflow-y-auto shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300" id="legal-content">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] text-[#062B66] flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#062B66]">Mentions légales — 7RAdmin</h3>
+                </div>
+                <button onclick="closeLegalModal()" aria-label="Fermer les mentions légales" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div class="bg-[#F7FAFC] p-4 rounded-2xl border border-slate-200/70">
+                    <h4 class="font-bold text-[#062B66] mb-1">Éditeur du site &amp; Entreprise</h4>
+                    <p><strong>Nom commercial :</strong> 7RAdmin</p>
+                    <p><strong>Entrepreneuse :</strong> Reine Cagnion</p>
+                    <p><strong>Statut juridique :</strong> Micro-entreprise (activité libérale non réglementée — régime micro-BNC, déclarée auprès de l'URSSAF)</p>
+                    <p><strong>Zone d'activité :</strong> Bassin de Thau et alentours (Sète, Balaruc-les-Bains, Balaruc-le-Vieux, Pézenas — Hérault, France)</p>
+                    <p><strong>Téléphone :</strong> <a href="tel:0613032281" class="text-[#008787] font-semibold hover:underline">06 13 03 22 81</a></p>
+                    <p><strong>Courriel :</strong> <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="text-[#008787] font-semibold hover:underline">7Radmin.gestionadministrative@gmail.com</a></p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[#062B66] mb-1">Hébergement du site</h4>
+                    <p>Ce site statique est conçu pour être hébergé sur <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, États-Unis).</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[#062B66] mb-1">Périmètre d'activité &amp; exclusions</h4>
+                    <p>7RAdmin propose des prestations d'assistance administrative à domicile, de classement, d'aide aux démarches en ligne et de constitution/suivi de dossiers d'aides pour les particuliers, seniors et aidants familiaux, ainsi qu'un appui administratif et d'organisation documentaire pour les TPE et artisans. La démarche Services à la Personne (SAP) est actuellement en cours d'instruction.</p>
+                    <p class="mt-1.5"><strong>Exclusions expresses :</strong> 7RAdmin n'effectue ni déclarations fiscales (impôts), ni tenue comptable réglementée, ni permanence téléphonique ou centre d'appel.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-[#062B66] mb-1">Données personnelles &amp; confidentialité</h4>
+                    <p>Les informations transmises via le formulaire ou par téléphone/courriel sont utilisées uniquement pour répondre à votre demande et organiser l'accompagnement. Aucune donnée n'est cédée à des tiers. Vous pouvez demander l'accès, la rectification ou la suppression de vos échanges en écrivant à <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="text-[#008787] font-semibold hover:underline">7Radmin.gestionadministrative@gmail.com</a>.</p>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+                <button onclick="closeLegalModal()" class="bg-[#062B66] hover:bg-[#0A387D] text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition-colors">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Message Box -->
+    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#062B66]/50 backdrop-blur-xs hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-7 max-w-md w-full mx-4 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300" id="notification-content">
+            <div class="flex items-start space-x-4 mb-5">
+                <div id="notification-icon" class="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl shrink-0"></div>
+                <div>
+                    <h3 id="notification-title" class="text-lg font-bold text-[#062B66]">Message</h3>
+                    <p id="notification-text" class="text-sm text-slate-600 mt-1.5 leading-relaxed"></p>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button onclick="closeNotification()" class="bg-[#062B66] hover:bg-[#0A387D] text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+                    Compris
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/70 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-3">
+            <!-- Identité Typographique Épurée 7RAdmin -->
+            <a href="#" class="inline-flex items-center space-x-2.5 group shrink-0">
+                <span class="w-2.5 h-8 rounded-full bg-gradient-to-b from-[#062B66] to-[#00A8A8] transition-transform duration-300 group-hover:scale-y-110"></span>
+                <span class="text-2xl sm:text-[1.75rem] tracking-tight text-[#062B66] leading-none inline-flex items-baseline">
+                    <strong class="font-extrabold">7R</strong><span class="font-light text-[#0A387D]">Adm</span><span class="font-light text-[#0A387D] relative inline-block">ı<span class="block w-1.5 h-1.5 rounded-full bg-[#00A8A8] absolute -top-1 left-1/2 -translate-x-1/2"></span></span><span class="font-light text-[#0A387D]">n</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-7">
+                <a href="#accueil" class="text-slate-700 hover:text-[#00A8A8] font-medium text-sm transition-colors">Accueil</a>
+                <a href="#services" class="text-slate-700 hover:text-[#00A8A8] font-medium text-sm transition-colors">Prestations</a>
+                <a href="#sap" class="text-slate-700 hover:text-[#00A8A8] font-medium text-sm transition-colors">Crédit d'impôt 50%</a>
+                <a href="#zone" class="text-slate-700 hover:text-[#00A8A8] font-medium text-sm transition-colors">Zone &amp; Valeurs</a>
+                <a href="#mentions-legales" class="text-slate-700 hover:text-[#00A8A8] font-medium text-sm transition-colors">Mentions légales</a>
+            </nav>
+
+            <!-- Header Contact CTA -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="tel:0613032281" class="hidden sm:inline-flex items-center space-x-2 bg-[#F0F5FA] hover:bg-[#DCE6F5] text-[#062B66] font-bold text-xs xl:text-sm px-4 py-2.5 rounded-xl border border-[#062B66]/15 transition-colors">
+                    <i class="fa-solid fa-phone text-[#00A8A8]"></i>
+                    <span>06 13 03 22 81</span>
+                </a>
+                <a href="#contact" class="brand-gradient hover:opacity-95 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl shadow-md shadow-[#062B66]/15 hover:shadow-lg transition-all flex items-center space-x-2">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Prendre rendez-vous</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" aria-label="Ouvrir le menu" class="lg:hidden text-[#062B66] hover:text-[#00A8A8] focus:outline-none p-2.5 rounded-xl bg-slate-50 border border-slate-200/70">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile & Tablet Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 pt-3 pb-6 space-y-2.5 shadow-lg">
+            <a href="#accueil" class="block text-slate-700 hover:text-[#00A8A8] font-medium py-2 border-b border-slate-100">Accueil</a>
+            <a href="#services" class="block text-slate-700 hover:text-[#00A8A8] font-medium py-2 border-b border-slate-100">Mes Prestations</a>
+            <a href="#sap" class="block text-slate-700 hover:text-[#00A8A8] font-medium py-2 border-b border-slate-100">Crédit d'impôt 50% (SAP)</a>
+            <a href="#zone" class="block text-slate-700 hover:text-[#00A8A8] font-medium py-2 border-b border-slate-100">Zone &amp; Engagements</a>
+            <a href="#mentions-legales" class="block text-slate-700 hover:text-[#00A8A8] font-medium py-2 border-b border-slate-100">Mentions légales</a>
+            <div class="pt-3 flex flex-col sm:flex-row gap-2.5">
+                <a href="tel:0613032281" class="flex-1 text-center bg-[#F0F5FA] text-[#062B66] font-bold py-3 rounded-xl border border-[#062B66]/15 text-sm">
+                    <i class="fa-solid fa-phone mr-1.5 text-[#00A8A8]"></i>06 13 03 22 81
+                </a>
+                <a href="#contact" class="flex-1 text-center brand-gradient text-white font-semibold py-3 rounded-xl shadow-md text-sm">
+                    Demander un rendez-vous
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28 bg-gradient-to-b from-white via-[#F0F5FA]/60 to-[#F7FAFC]">
+        <!-- Subtle decorative shapes -->
+        <div class="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-[#00A8A8]/5 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-24 -mb-24 w-96 h-96 rounded-full bg-[#062B66]/5 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                <!-- Left text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2.5 bg-white border border-[#00A8A8]/30 px-4 py-2 rounded-full text-[#062B66] text-xs sm:text-sm font-semibold shadow-xs">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#00A8A8] animate-pulse"></span>
+                        <span>Reine Cagnion • Bassin de Thau • Micro-entreprise (URSSAF)</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-extrabold text-[#062B66] tracking-tight leading-[1.15]">
+                        Votre administratif géré avec <span class="brand-text-gradient">sérénité et bienveillance.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Accompagnement administratif à domicile, organisation documentaire et aide aux démarches en ligne pour les <strong class="text-[#062B66] font-semibold">seniors et aidants familiaux</strong> (APA, PAP, ASPA, ASI, MaPrimeAdapt', APL/ALS, droit au répit, AJPA, Agirc-Arrco), ainsi qu'un appui administratif et d'organisation pour les <strong class="text-[#062B66] font-semibold">TPE et artisans</strong>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#contact" class="w-full sm:w-auto brand-gradient hover:opacity-95 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-[#062B66]/20 hover:shadow-xl transition-all text-center flex items-center justify-center space-x-2">
+                            <span>Prendre rendez-vous à domicile</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="tel:0613032281" class="w-full sm:w-auto bg-white hover:bg-[#F0F5FA] text-[#062B66] font-semibold px-7 py-4 rounded-2xl border border-slate-200 shadow-xs transition-all text-center flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-phone text-[#00A8A8]"></i>
+                            <span>06 13 03 22 81</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust badges -->
+                    <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200/80 max-w-2xl mx-auto lg:mx-0">
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 bg-white/80 p-3 rounded-2xl border border-slate-100">
+                            <div class="w-10 h-10 rounded-xl bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold text-[#062B66]">Crédit d'impôt 50%</span>
+                                <span class="text-xs text-slate-500">Cadre SAP particuliers</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 bg-white/80 p-3 rounded-2xl border border-slate-100">
+                            <div class="w-10 h-10 rounded-xl bg-[#F0F5FA] text-[#062B66] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-house-user"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold text-[#062B66]">À votre domicile</span>
+                                <span class="text-xs text-slate-500">Sète, Balaruc &amp; alentours</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center lg:justify-start space-x-3 bg-white/80 p-3 rounded-2xl border border-slate-100">
+                            <div class="w-10 h-10 rounded-xl bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold text-[#062B66]">100% Confidentiel</span>
+                                <span class="text-xs text-slate-500">Écoute &amp; patience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Card featuring Brand Typography & Key Value -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-[#062B66] to-[#00B5B5] rounded-3xl blur-xl opacity-15"></div>
+                        <div class="relative bg-white border border-slate-100 rounded-3xl p-7 sm:p-8 shadow-xl shadow-slate-200/60 space-y-6">
+                            <!-- Card Header -->
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-5">
+                                <div>
+                                    <span class="text-2xl tracking-tight text-[#062B66] leading-none inline-flex items-baseline">
+                                        <strong class="font-extrabold">7R</strong><span class="font-light text-[#0A387D]">Adm</span><span class="font-light text-[#0A387D] relative inline-block">ı<span class="block w-1.5 h-1.5 rounded-full bg-[#00A8A8] absolute -top-1 left-1/2 -translate-x-1/2"></span></span><span class="font-light text-[#0A387D]">n</span>
+                                    </span>
+                                    <p class="text-xs text-slate-500 mt-1.5">Reine Cagnion • Accompagnement de proximité</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#062B66] to-[#00A8A8] text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-handshake-angle"></i>
+                                </div>
+                            </div>
+
+                            <!-- Key Highlights -->
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3.5">
+                                    <div class="w-6 h-6 rounded-full bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-xs mt-0.5 shrink-0 border border-[#00A8A8]/20">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-sm text-slate-700 leading-relaxed">
+                                        <strong class="text-[#062B66]">Aides &amp; droits seniors/aidants :</strong> APA, PAP, ASPA, ASI, MaPrimeAdapt', APL/ALS, droit au répit, AJPA, Agirc-Arrco.
+                                    </p>
+                                </div>
+                                <div class="flex items-start space-x-3.5">
+                                    <div class="w-6 h-6 rounded-full bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-xs mt-0.5 shrink-0 border border-[#00A8A8]/20">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-sm text-slate-700 leading-relaxed">
+                                        <strong class="text-[#062B66]">Organisation &amp; courriers :</strong> Tri, classement clair de vos papiers et rédaction de vos courriers courants.
+                                    </p>
+                                </div>
+                                <div class="flex items-start space-x-3.5">
+                                    <div class="w-6 h-6 rounded-full bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-xs mt-0.5 shrink-0 border border-[#00A8A8]/20">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-sm text-slate-700 leading-relaxed">
+                                        <strong class="text-[#062B66]">Aide numérique :</strong> Démarches en ligne et prise en main douce expliquées sans jargon.
+                                    </p>
+                                </div>
+                                <div class="flex items-start space-x-3.5">
+                                    <div class="w-6 h-6 rounded-full bg-[#F0F5FA] text-[#062B66] flex items-center justify-center text-xs mt-0.5 shrink-0 border border-[#062B66]/20">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p class="text-sm text-slate-700 leading-relaxed">
+                                        <strong class="text-[#062B66]">TPE &amp; artisans :</strong> Appui administratif et organisation documentaire pour alléger votre quotidien.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card Footer -->
+                            <div class="bg-[#F0F5FA] p-4 rounded-2xl border border-[#062B66]/10 flex items-center justify-between text-xs gap-2">
+                                <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="text-[#062B66] font-semibold hover:text-[#00A8A8] truncate">
+                                    <i class="fa-solid fa-envelope text-[#00A8A8] mr-1.5"></i>7Radmin.gestionadministrative@gmail.com
+                                </a>
+                                <span class="font-bold text-[#062B66] bg-white px-2.5 py-1 rounded-lg shadow-2xs shrink-0">Bassin de Thau</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-24 bg-white border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="inline-block text-[#00A8A8] font-bold text-xs tracking-wider uppercase bg-[#EFFBFB] border border-[#00A8A8]/20 px-4 py-1.5 rounded-full">
+                    Mes Prestations sur-mesure
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#062B66] tracking-tight">
+                    Un accompagnement complet et humain au quotidien
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    Au cœur de mon activité : aider les <strong class="text-[#062B66]">seniors et aidants familiaux</strong> à domicile, tout en proposant un appui administratif et d'organisation aux <strong class="text-[#062B66]">petites entreprises et artisans</strong>.
+                </p>
+            </div>
+
+            <!-- Main Target: Particuliers, Seniors & Aidants (3 Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Card 1: Dossiers d'aides & Droits -->
+                <div class="bg-[#F7FAFC] border border-slate-200/80 rounded-3xl p-8 hover:shadow-xl hover:border-[#00A8A8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-[#062B66] text-white flex items-center justify-center text-2xl shadow-md group-hover:bg-[#00A8A8] transition-colors">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#00A8A8]">Seniors &amp; Aidants Familiaux</span>
+                            <h3 class="text-xl font-bold text-[#062B66] mt-1">Dossiers d'Aides &amp; Droits</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Aide à la constitution, au rassemblement des justificatifs et au suivi de vos demandes d'aides sociales, logement et retraite :
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span><strong>APA</strong> (Allocation Personnalisée d'Autonomie) &amp; <strong>droit au répit</strong></span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span><strong>PAP, ASPA &amp; ASI</strong> (retraite et solidarité)</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span><strong>MaPrimeAdapt' &amp; APL / ALS</strong> (adaptation logement &amp; aides au loyer)</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span><strong>AJPA</strong> (congé proche aidant) &amp; dossiers <strong>Agirc-Arrco</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 border-t border-slate-200/80 mt-6 flex items-center justify-between text-xs font-bold text-[#062B66]">
+                        <span>Crédit d'impôt 50% (cadre SAP)</span>
+                        <a href="#contact" class="text-[#00A8A8] hover:underline flex items-center">
+                            <span>Demander de l'aide</span>
+                            <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Organisation documentaire & Courriers -->
+                <div class="bg-[#F7FAFC] border border-slate-200/80 rounded-3xl p-8 hover:shadow-xl hover:border-[#00A8A8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-[#0A387D] text-white flex items-center justify-center text-2xl shadow-md group-hover:bg-[#00A8A8] transition-colors">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#00A8A8]">À Domicile</span>
+                            <h3 class="text-xl font-bold text-[#062B66] mt-1">Organisation &amp; Courriers</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Retrouvez une organisation claire de vos documents personnels et un traitement serein de votre courrier au quotidien :
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Tri, rangement et classement thématique durable</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Lecture, tri et suivi du courrier administratif</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Rédaction de courriers simples, demandes d'attestations et suivis</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Préparation de classeurs de référence pour les aidants</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 border-t border-slate-200/80 mt-6 flex items-center justify-between text-xs font-bold text-[#062B66]">
+                        <span>Crédit d'impôt 50% (cadre SAP)</span>
+                        <a href="#contact" class="text-[#00A8A8] hover:underline flex items-center">
+                            <span>Organiser mes papiers</span>
+                            <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Accompagnement Numérique -->
+                <div class="bg-[#F7FAFC] border border-slate-200/80 rounded-3xl p-8 hover:shadow-xl hover:border-[#00A8A8]/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-[#00A8A8] text-white flex items-center justify-center text-2xl shadow-md group-hover:bg-[#062B66] transition-colors">
+                            <i class="fa-solid fa-laptop-medical"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#00A8A8]">Pédagogie &amp; Patience</span>
+                            <h3 class="text-xl font-bold text-[#062B66] mt-1">Démarches Numériques</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Un accompagnement pas à pas sur ordinateur, tablette ou smartphone pour réaliser vos démarches en ligne en toute confiance :
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Aide à l'utilisation des téléservices et espaces personnels</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Scan, renommage et téléversement de pièces justificatives</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Aide à la prise de rendez-vous et gestion des courriels</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-check text-[#00A8A8] text-xs mt-1 shrink-0"></i>
+                                <span>Explications claires adaptées à votre rythme</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 border-t border-slate-200/80 mt-6 flex items-center justify-between text-xs font-bold text-[#062B66]">
+                        <span>Crédit d'impôt 50% (cadre SAP)</span>
+                        <a href="#contact" class="text-[#00A8A8] hover:underline flex items-center">
+                            <span>Être accompagné</span>
+                            <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Target Banner: TPE & Artisans -->
+            <div class="bg-gradient-to-r from-[#062B66] to-[#0A387D] rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 top-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-[#00A8A8]/20 blur-2xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
+                    <div class="lg:col-span-8 space-y-3">
+                        <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-3.5 py-1 rounded-full text-[#00B5B5] text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>Volet Secondaire • TPE &amp; Artisans</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">
+                            Appui administratif et organisation documentaire pour pros
+                        </h3>
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-3xl">
+                            En complément de mon cœur d'activité auprès des particuliers et seniors, j'accompagne également les <strong>TPE et artisans</strong> autour du Bassin de Thau pour structurer leurs dossiers, trier et classer leurs documents administratifs, préparer les pièces à transmettre à leur cabinet comptable et alléger leur gestion quotidienne.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-4 flex lg:justify-end">
+                        <a href="#contact" class="w-full sm:w-auto bg-[#00A8A8] hover:bg-[#00B5B5] text-white font-bold px-7 py-4 rounded-2xl shadow-lg transition-all text-center text-sm flex items-center justify-center space-x-2">
+                            <span>Échanger sur mon activité</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explicit Scope Boundaries Notice -->
+            <div class="mt-8 bg-[#F0F5FA] border border-[#062B66]/15 rounded-2xl p-5 flex items-start sm:items-center space-x-4 max-w-4xl mx-auto">
+                <div class="w-10 h-10 rounded-xl bg-white text-[#062B66] flex items-center justify-center shrink-0 shadow-2xs">
+                    <i class="fa-solid fa-circle-info text-lg"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    <strong class="text-[#062B66]">Périmètre d'intervention :</strong> 7RAdmin réalise exclusivement des prestations d'assistance administrative et d'aide aux démarches/numérique. Les prestations suivantes sont <strong>exclues du catalogue</strong> : la réalisation de <strong>déclarations fiscales (impôts)</strong> ainsi que la <strong>permanence téléphonique</strong> (accueil ou standard téléphonique).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services à la Personne (SAP) Section -->
+    <section id="sap" class="py-20 bg-[#F7FAFC] border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-5">
+                        <div class="inline-flex items-center space-x-2 bg-[#EFFBFB] border border-[#00A8A8]/30 px-4 py-1.5 rounded-full text-[#062B66] text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-hourglass-half text-[#00A8A8]"></i>
+                            <span>Démarche Services à la Personne (SAP) en cours</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#062B66] tracking-tight">
+                            Jusqu'à <span class="text-[#00A8A8]">50 % de crédit d'impôt</span> sur l'assistance à domicile
+                        </h2>
+                        <p class="text-slate-600 text-base leading-relaxed">
+                            Ma démarche d'enregistrement au titre des <strong>Services à la Personne (SAP)</strong> est actuellement <strong>en cours d'instruction</strong>. Dès sa validation officielle, les particuliers éligibles bénéficieront d'un <strong>crédit d'impôt de 50 %</strong> sur les prestations d'assistance administrative et numérique réalisées à domicile (dans les limites et conditions prévues par l'article 199 sexdecies du Code général des impôts).
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-[#F7FAFC] p-4 rounded-2xl border border-slate-100 flex items-start space-x-3">
+                                <i class="fa-solid fa-hand-holding-dollar text-[#00A8A8] text-xl mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#062B66] text-sm">Avantage fiscal dédié aux foyers</h4>
+                                    <p class="text-xs text-slate-600 mt-1">Applicable aux interventions à domicile des particuliers dès validation de l'enregistrement SAP.</p>
+                                </div>
+                            </div>
+                            <div class="bg-[#F7FAFC] p-4 rounded-2xl border border-slate-100 flex items-start space-x-3">
+                                <i class="fa-solid fa-file-invoice-dollar text-[#062B66] text-xl mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-[#062B66] text-sm">Attestation fiscale annuelle</h4>
+                                    <p class="text-xs text-slate-600 mt-1">Une attestation récapitulative vous sera remise chaque année pour votre déclaration de revenus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Simulation Box -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-gradient-to-br from-[#F0F5FA] to-[#EFFBFB] border border-[#00A8A8]/25 rounded-3xl p-7 space-y-5">
+                            <div class="flex items-center justify-between border-b border-slate-200/80 pb-4">
+                                <span class="font-bold text-[#062B66] text-base">Illustration à domicile</span>
+                                <span class="bg-[#00A8A8] text-white text-xs font-extrabold px-3 py-1 rounded-full">- 50 %</span>
+                            </div>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between items-center text-slate-700">
+                                    <span>Prestation éligible SAP (ex. 2h)</span>
+                                    <span class="font-semibold">80,00 €</span>
+                                </div>
+                                <div class="flex justify-between items-center text-[#008787] font-medium">
+                                    <span>Crédit / déduction d'impôt (50 %*)</span>
+                                    <span>- 40,00 €</span>
+                                </div>
+                                <div class="border-t border-slate-300/70 pt-3 flex justify-between items-center">
+                                    <span class="font-bold text-[#062B66] text-base">Coût net indicatif</span>
+                                    <span class="text-2xl font-extrabold text-[#062B66]">40,00 €</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                * Exemple indicatif applicable dès validation effective de la déclaration/autorisation SAP en cours d'instruction, sous réserve des plafonds légaux. Hors prestations professionnelles (TPE/artisans).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zone d'intervention & Engagements Section -->
+    <section id="zone" class="py-20 lg:py-24 bg-white border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Values -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2.5 bg-[#EFFBFB] border border-[#00A8A8]/25 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-[#00A8A8]"></span>
+                        <span class="text-[#008787] font-bold text-xs tracking-wider uppercase">Mes Engagements • Reine Cagnion</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#062B66] tracking-tight">
+                        La proximité humaine au service de votre tranquillité
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 bg-[#F7FAFC] p-5 rounded-2xl border border-slate-200/60">
+                            <div class="w-11 h-11 rounded-xl bg-[#062B66] text-white flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#062B66] text-base">Bienveillance &amp; Zéro jugement</h4>
+                                <p class="text-sm text-slate-600 mt-1">Que vos papiers soient accumulés depuis des mois ou que l'ordinateur vous intimide, nous avançons ensemble calmement.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-[#F7FAFC] p-5 rounded-2xl border border-slate-200/60">
+                            <div class="w-11 h-11 rounded-xl bg-[#00A8A8] text-white flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-people-roof"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#062B66] text-base">Soulagement des aidants familiaux</h4>
+                                <p class="text-sm text-slate-600 mt-1">Vous aidez un parent âgé à distance ou manque de temps ? Je prends le relais sur place et vous tiens informé.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-[#F7FAFC] p-5 rounded-2xl border border-slate-200/60">
+                            <div class="w-11 h-11 rounded-xl bg-[#0A387D] text-white flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#062B66] text-base">Discrétion et confidentialité absolues</h4>
+                                <p class="text-sm text-slate-600 mt-1">Vos documents personnels, médicaux et financiers sont traités avec le plus grand respect et une confidentialité totale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Zone d'intervention -->
+                <div class="lg:col-span-6">
+                    <div class="bg-[#F7FAFC] border border-slate-200/80 rounded-3xl p-8 sm:p-9 shadow-lg space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-200 pb-5">
+                            <div>
+                                <h3 class="text-xl font-bold text-[#062B66]">Zone d'intervention</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Déplacement à domicile et sur site dans l'Hérault (34)</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-2xl bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div class="flex items-center space-x-3 text-sm text-slate-800 bg-white p-4 rounded-2xl border border-slate-200/60 shadow-2xs">
+                                <i class="fa-solid fa-location-dot text-[#00A8A8]"></i>
+                                <span class="font-semibold">Sète</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slate-800 bg-white p-4 rounded-2xl border border-slate-200/60 shadow-2xs">
+                                <i class="fa-solid fa-location-dot text-[#00A8A8]"></i>
+                                <span class="font-semibold">Balaruc-les-Bains</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slate-800 bg-white p-4 rounded-2xl border border-slate-200/60 shadow-2xs">
+                                <i class="fa-solid fa-location-dot text-[#00A8A8]"></i>
+                                <span class="font-semibold">Balaruc-le-Vieux</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slate-800 bg-white p-4 rounded-2xl border border-slate-200/60 shadow-2xs">
+                                <i class="fa-solid fa-location-dot text-[#062B66]"></i>
+                                <span class="font-semibold">Pézenas</span>
+                            </div>
+                            <div class="sm:col-span-2 flex items-center space-x-3 text-sm text-slate-800 bg-white p-4 rounded-2xl border border-slate-200/60 shadow-2xs">
+                                <i class="fa-solid fa-location-dot text-[#00A8A8]"></i>
+                                <span class="font-semibold">Ensemble des communes du Bassin de Thau</span>
+                            </div>
+                        </div>
+
+                        <div class="brand-gradient text-white p-6 rounded-2xl space-y-3">
+                            <div class="flex items-center space-x-2 text-[#00B5B5] text-xs font-bold tracking-wider uppercase">
+                                <i class="fa-solid fa-car-side"></i>
+                                <span>Intervention rapide sur le Bassin de Thau</span>
+                            </div>
+                            <p class="text-sm text-slate-100 leading-relaxed">
+                                Vous habitez une commune voisine (Bouzigues, Loupian, Gigean, Poussan, Marseillan...) ? Contactez-moi pour convenir d'un rendez-vous à votre domicile.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center space-x-2 bg-white text-[#062B66] font-bold text-xs px-5 py-3 rounded-xl shadow-sm hover:bg-[#F0F5FA] transition-colors">
+                                <span>Vérifier ma commune</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Rendez-vous Section -->
+    <section id="contact" class="py-20 lg:py-24 bg-[#F7FAFC] border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="inline-block text-[#00A8A8] font-bold text-xs tracking-wider uppercase bg-[#EFFBFB] border border-[#00A8A8]/20 px-4 py-1.5 rounded-full">
+                    Contact &amp; Rendez-vous
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#062B66] tracking-tight">
+                    Échangeons sur vos besoins en toute simplicité
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Premier entretien téléphonique ou à domicile offert et sans engagement pour faire le point sur votre situation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white border border-slate-200/80 rounded-3xl p-8 space-y-6 shadow-sm">
+                        <div class="flex items-center space-x-3.5 border-b border-slate-100 pb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#062B66] to-[#00A8A8] text-white flex items-center justify-center font-extrabold text-lg shadow-sm shrink-0">
+                                7R
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-[#062B66]">Reine Cagnion — 7RAdmin</h3>
+                                <p class="text-xs text-slate-500">Micro-entreprise • Bassin de Thau (34)</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-11 h-11 rounded-xl bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center shrink-0 text-lg">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-[#062B66] text-sm">Téléphone</h4>
+                                        <a href="tel:0613032281" class="text-base text-slate-800 font-bold hover:text-[#00A8A8] transition-colors mt-0.5 inline-block">06 13 03 22 81</a>
+                                        <p class="text-xs text-slate-500 mt-0.5">Appel direct pour convenir d'un rendez-vous</p>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="copyToClipboard('06 13 03 22 81', 'Numéro de téléphone')" aria-label="Copier le numéro de téléphone" class="text-xs font-semibold text-[#062B66] bg-[#F0F5FA] hover:bg-[#DCE6F5] px-3 py-2 rounded-xl transition-colors shrink-0">
+                                    <i class="fa-regular fa-copy mr-1"></i>Copier
+                                </button>
+                            </div>
+
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="flex items-start space-x-4 min-w-0">
+                                    <div class="w-11 h-11 rounded-xl bg-[#F0F5FA] text-[#062B66] flex items-center justify-center shrink-0 text-lg">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <h4 class="font-bold text-[#062B66] text-sm">Courriel</h4>
+                                        <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="text-sm text-slate-800 font-semibold hover:text-[#00A8A8] transition-colors mt-0.5 block break-all">7Radmin.gestionadministrative@gmail.com</a>
+                                        <p class="text-xs text-slate-500 mt-0.5">Réponse personnalisée sous 24h ouvrées</p>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="copyToClipboard('7Radmin.gestionadministrative@gmail.com', 'Adresse e-mail')" aria-label="Copier l'adresse e-mail" class="text-xs font-semibold text-[#062B66] bg-[#F0F5FA] hover:bg-[#DCE6F5] px-3 py-2 rounded-xl transition-colors shrink-0">
+                                    <i class="fa-regular fa-copy mr-1"></i>Copier
+                                </button>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-11 h-11 rounded-xl bg-[#EFFBFB] text-[#00A8A8] flex items-center justify-center shrink-0 text-lg">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#062B66] text-sm">Secteur d'intervention</h4>
+                                    <p class="text-sm text-slate-700 mt-0.5">Sète, Balaruc-les-Bains, Balaruc-le-Vieux, Pézenas et l'ensemble du Bassin de Thau</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#F0F5FA] p-4 rounded-2xl border border-[#062B66]/10 text-xs text-slate-700 leading-relaxed">
+                            <strong class="text-[#062B66]"><i class="fa-solid fa-user-check text-[#00A8A8] mr-1.5"></i>Vous êtes un aidant familial ?</strong><br>
+                            Nous pouvons organiser un rendez-vous conjoint avec votre proche ou faire un premier point ensemble par téléphone au <strong>06 13 03 22 81</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Appointment Form Column -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-9 space-y-6 shadow-sm">
+                        <div class="border-b border-slate-100 pb-4">
+                            <h3 class="text-xl font-bold text-[#062B66]">Demande de rendez-vous ou de renseignements</h3>
+                            <p class="text-xs text-slate-500 mt-1">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-1.5">
+                                <label for="name" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Nom &amp; Prénom *</label>
+                                <input type="text" id="name" required class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all" placeholder="Ex: Marie Martin">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label for="phone" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Téléphone *</label>
+                                <input type="tel" id="phone" required class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all" placeholder="Ex: 06 12 34 56 78">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-1.5">
+                                <label for="email" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Adresse Email</label>
+                                <input type="email" id="email" class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all" placeholder="Ex: marie.martin@exemple.fr">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label for="city" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Commune d'intervention *</label>
+                                <input type="text" id="city" required class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all" placeholder="Ex: Sète, Balaruc-les-Bains...">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-1.5">
+                                <label for="service-type" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Prestation souhaitée</label>
+                                <select id="service-type" class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all">
+                                    <option value="Dossiers d'aides (APA, PAP, ASPA, ASI, MaPrimeAdapt', APL/ALS, droit au répit, AJPA, Agirc-Arrco)">Dossiers d'aides (APA, PAP, ASPA, ASI, MaPrimeAdapt', APL/ALS, répit, AJPA, Agirc-Arrco)</option>
+                                    <option value="Classement, tri & organisation documentaire à domicile">Classement, tri &amp; organisation documentaire à domicile</option>
+                                    <option value="Accompagnement numérique & démarches en ligne">Accompagnement numérique &amp; démarches en ligne</option>
+                                    <option value="Accompagnement pour un proche (Aidant familial)">Accompagnement pour un proche (Aidant familial)</option>
+                                    <option value="Appui administratif & organisation TPE / Artisan">Appui administratif &amp; organisation TPE / Artisan</option>
+                                    <option value="Autre demande">Autre demande de renseignement</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label for="preferred-date" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Disponibilité souhaitée</label>
+                                <select id="preferred-date" class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all">
+                                    <option value="Dès que possible">Dès que possible</option>
+                                    <option value="En matinée (9h - 12h)">En matinée (9h - 12h)</option>
+                                    <option value="L'après-midi (14h - 18h)">L'après-midi (14h - 18h)</option>
+                                    <option value="Simple rappel téléphonique d'abord">Simple rappel téléphonique d'abord</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label for="message" class="block text-xs font-bold text-[#062B66] uppercase tracking-wider">Votre message *</label>
+                            <textarea id="message" rows="4" required class="w-full bg-[#F7FAFC] border border-slate-200 rounded-xl px-4 py-3.5 text-sm text-slate-800 focus:bg-white focus:outline-none focus:border-[#00A8A8] focus:ring-2 focus:ring-[#00A8A8]/20 transition-all resize-none" placeholder="Expliquez-moi brièvement comment je peux vous aider..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full brand-gradient hover:opacity-95 text-white font-bold py-4 rounded-xl shadow-lg shadow-[#062B66]/20 hover:shadow-xl transition-all text-sm flex items-center justify-center space-x-2">
+                            <span>Préparer ma demande de rendez-vous</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentions Légales Section -->
+    <section id="mentions-legales" class="py-12 bg-white border-t border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[#F7FAFC] border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+                    <div class="flex items-center space-x-2 text-[#062B66] font-bold text-sm sm:text-base">
+                        <i class="fa-solid fa-scale-balanced text-[#00A8A8]"></i>
+                        <span>Mentions légales — 7RAdmin</span>
+                    </div>
+                    <p>
+                        <strong>Reine Cagnion</strong> • Micro-entreprise (micro-BNC libérale non réglementée, URSSAF) • Bassin de Thau (Hérault, France).
+                    </p>
+                    <p>
+                        Contact : <a href="tel:0613032281" class="text-[#062B66] font-semibold hover:text-[#00A8A8]">06 13 03 22 81</a> • <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="text-[#062B66] font-semibold hover:text-[#00A8A8]">7Radmin.gestionadministrative@gmail.com</a> • Hébergement prévu : GitHub Pages.
+                    </p>
+                </div>
+                <button type="button" onclick="openLegalModal()" class="bg-white hover:bg-[#F0F5FA] text-[#062B66] font-bold text-xs sm:text-sm px-5 py-3 rounded-xl border border-slate-200 shadow-2xs transition-colors shrink-0">
+                    Lire les mentions légales complètes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#041E47] text-slate-300 py-14 border-t border-[#0A387D]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-white/10">
+                <!-- Footer Brand Typography -->
+                <div class="flex items-center space-x-4">
+                    <span class="w-2 h-12 rounded-full bg-gradient-to-b from-[#00B5B5] to-[#0A387D] shrink-0"></span>
+                    <div>
+                        <span class="text-white text-2xl tracking-tight leading-none inline-flex items-baseline">
+                            <strong class="font-extrabold">7R</strong><span class="font-light text-slate-100">Adm</span><span class="font-light text-slate-100 relative inline-block">ı<span class="block w-1.5 h-1.5 rounded-full bg-[#00B5B5] absolute -top-1 left-1/2 -translate-x-1/2"></span></span><span class="font-light text-slate-100">n</span>
+                        </span>
+                        <span class="text-xs text-slate-300 block mt-1.5">Reine Cagnion • Bassin de Thau</span>
+                        <div class="text-xs text-[#00B5B5] font-medium mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                            <a href="tel:0613032281" class="hover:underline">06 13 03 22 81</a>
+                            <a href="mailto:7Radmin.gestionadministrative@gmail.com" class="hover:underline">7Radmin.gestionadministrative@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-medium text-slate-300">
+                    <a href="#accueil" class="hover:text-[#00B5B5] transition-colors">Accueil</a>
+                    <a href="#services" class="hover:text-[#00B5B5] transition-colors">Prestations</a>
+                    <a href="#sap" class="hover:text-[#00B5B5] transition-colors">Crédit d'impôt 50%</a>
+                    <a href="#zone" class="hover:text-[#00B5B5] transition-colors">Zone d'intervention</a>
+                    <a href="#mentions-legales" class="hover:text-[#00B5B5] transition-colors">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <p>&copy; 2026 7RAdmin — Reine Cagnion. Tous droits réservés.</p>
+                <p class="text-center sm:text-right">
+                    Sète, Balaruc-les-Bains, Balaruc-le-Vieux, Pézenas &amp; Bassin de Thau
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy to clipboard helper using document.execCommand fallback for sandbox/iframe compatibility
+        function copyToClipboard(text, label) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'absolute';
+            tempInput.style.left = '-9999px';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+
+            let copied = false;
+            try {
+                copied = document.execCommand('copy');
+            } catch (err) {
+                copied = false;
+            }
+            document.body.removeChild(tempInput);
+
+            if (copied) {
+                showNotification(
+                    'Copié dans le presse-papiers',
+                    `${label} (${text}) a bien été copié.`,
+                    'success'
+                );
+            } else {
+                showNotification(
+                    label,
+                    `Vous pouvez joindre 7RAdmin au 06 13 03 22 81 ou par courriel à 7Radmin.gestionadministrative@gmail.com.`,
+                    'success'
+                );
+            }
+        }
+
+        // Legal modal controls
+        function openLegalModal() {
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLegalModal() {
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-content');
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Interactive Appointment / Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const service = document.getElementById('service-type').value;
+            const availability = document.getElementById('preferred-date').value;
+            const userMessage = document.getElementById('message').value.trim();
+
+            const subject = encodeURIComponent(`Demande 7RAdmin - ${name} (${city})`);
+            const body = encodeURIComponent(
+                `Bonjour Reine,\n\nJe souhaite prendre contact avec 7RAdmin.\n\n` +
+                `Nom / Prénom : ${name}\n` +
+                `Téléphone : ${phone}\n` +
+                `Courriel : ${email || 'Non renseigné'}\n` +
+                `Commune : ${city}\n` +
+                `Prestation souhaitée : ${service}\n` +
+                `Disponibilité : ${availability}\n\n` +
+                `Message :\n${userMessage}`
+            );
+
+            showNotification(
+                'Demande prête à être envoyée',
+                `Merci ${name}. Votre demande pour ${city} est préparée vers 7Radmin.gestionadministrative@gmail.com. Vous pouvez également appeler directement Reine Cagnion au 06 13 03 22 81.`,
+                'success'
+            );
+
+            try {
+                window.location.href = `mailto:7Radmin.gestionadministrative@gmail.com?subject=${subject}&body=${body}`;
+            } catch (err) {
+                // Ignore si le navigateur bloque l'ouverture automatique du client mail
+            }
+
+            document.getElementById('contact-form').reset();
+        }
+
+        function showNotification(title, text, type) {
+            const modal = document.getElementById('notification-modal');
+            const content = document.getElementById('notification-content');
+            const iconDiv = document.getElementById('notification-icon');
+            const titleEl = document.getElementById('notification-title');
+            const textEl = document.getElementById('notification-text');
+
+            titleEl.textContent = title;
+            textEl.textContent = text;
+
+            if (type === 'success') {
+                iconDiv.className = 'w-12 h-12 rounded-2xl bg-[#EFFBFB] text-[#00A8A8] border border-[#00A8A8]/20 flex items-center justify-center text-xl shrink-0';
+                iconDiv.innerHTML = '<i class="fa-solid fa-check"></i>';
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeNotification() {
+            const modal = document.getElementById('notification-modal');
+            const content = document.getElementById('notification-content');
+
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
